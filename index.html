@@ -1,0 +1,86 @@
+<!--doctype html-->
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="This is description">
+    <meta name="keywords" content="html, html tutorials, web development">
+    <meta name="robots" content="INDEX, FOLLOW">
+  <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@youon/videojs-replayforward@1.0.1/dist/videojs-replayforward.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/videojs-logo@2.1.1/dist/videojs-logo.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://dl.dropboxusercontent.com/s/8v1r5kfvfn6e1mm/videojs-contextmenu-ui.css" />
+    <link href="https://dl.dropboxusercontent.com/s/9fyi04slnno3gdv/videojs-seek-buttons.css" rel="stylesheet">
+  <style>.video-js .vjs-big-play-button{
+  font-size:2.5em;
+  background-color:red;
+  line-height:2.5em;
+  height:2.6em; 
+  width:2.8em;
+  border:3px solid #FF000E;
+  border-radius:50%;
+  left:50%;
+  top:50%;
+  margin-left:-1.40em;
+  margin-top:-1.30em}
+  .video-js .vjs-big-play-button .vjs-icon-placeholder:before 
+  {font-size: 50px;}
+  .video-js {color: #76FF00;}
+  </style>
+</head>
+<body>
+  <video id="my-video" oncontextmenu="return false;" class="video-js vjs-big-play-centered "    data-setup='{"fluid": true,"aspectRatio":"16:9" }' controls><source src="https://drive.google.com/uc?id=1EK4F1PiW7_6vmw7RvfpqtOSebLtxUjYF&export=download" type='video/mp4'>
+      <track kind="captions" src="https://dl.dropboxusercontent.com/s/c3yyhq1ek4jonnl/%5BSubtitleTools.com%5D%20Doraemon%20Epsiode%20No.400.vtt" srclang="en" label="English" default>
+  </video>
+    
+    <script src="https://vjs.zencdn.net/7.10.2/video.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/videojs-logo@2.1.1/dist/videojs-logo.js"></script>
+  <script src="//cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@youon/videojs-replayforward@1.0.1/dist/videojs-replayforward.js"></script>
+  <script src="https://dl.dropboxusercontent.com/s/x02hcuvf3g73x35/videojs-contextmenu-ui.js"></script>
+    <script src="https://dl.dropboxusercontent.com/s/bl28n6213ln60x6/videojs-seek-buttons.js"></script>
+  <script>
+   var player = videojs('my-video');
+  // initialize the plugin
+
+(function(window, videojs) {
+      var examplePlayer = window.examplePlayer = videojs('my-video');
+      var logo = window.logo = examplePlayer.logo({
+        image: 'https://3.bp.blogspot.com/-d6da9ysmAI4/X8dRfg5_4RI/AAAAAAAAAtc/_ZwZdvBBam0GYhUdavqeIU26mgfYbSgVwCK4BGAYYCw/s1600/InShot_20201202_140229669-removebg-preview.png',
+        url: 'https://camverseofficiallsgo.blogspot.com/',
+        width: 200,
+        fadeDelay: null
+      });
+    }(window, window.videojs));
+ videojs('my-video').ready(function() {
+  this.hotkeys({
+    volumeStep: 0.1,
+    seekStep: 5,
+    enableModifiersForNumbers: false
+  });
+});
+       (function(window, videojs) {
+      var player = window.player = videojs('my-video');
+
+      player.contextmenuUI({
+        content: [{
+          href: 'https://www.brightcove.com/',
+          label: 'Brightcove'
+        }, {
+          label: 'Example Link',
+          listener: function() {
+            alert('you clicked the example link!');
+          }
+        }]
+      });
+    }(window, window.videojs));
+    //Fat forward//
+    (function(window, videojs) {
+      var examplePlayer = window.examplePlayer = videojs('my-video');
+      var seekButtons = window.seekButtons = examplePlayer.seekButtons({
+        forward: 10,
+        back: 10
+      });
+    }(window, window.videojs));
+</script>
