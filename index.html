@@ -8,11 +8,13 @@
     <meta name="keywords" content="html, html tutorials, web development">
     <meta name="robots" content="INDEX, FOLLOW">
   <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/@youon/videojs-replayforward@1.0.1/dist/videojs-replayforward.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/videojs-share@3.2.1/dist/videojs-share.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@youon/videojs-replayforward@1.0.1/dist/videojs-replayforward.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/videojs-logo@2.1.1/dist/videojs-logo.css" rel="stylesheet">
   <link rel="stylesheet" href="https://dl.dropboxusercontent.com/s/8v1r5kfvfn6e1mm/videojs-contextmenu-ui.css" />
     <link href="https://dl.dropboxusercontent.com/s/9fyi04slnno3gdv/videojs-seek-buttons.css" rel="stylesheet">
-  <style>.video-js .vjs-big-play-button{
+
+      <style>.video-js .vjs-big-play-button{
   font-size:2.5em;
   background-color:red;
   line-height:2.5em;
@@ -31,20 +33,45 @@
 </head>
 <body>
   <video id="my-video" oncontextmenu="return false;" class="video-js vjs-big-play-centered " poster="https://dl.dropboxusercontent.com/s/cd92mzr97hedvl9/Screenshot_20201209-170218.png?dl=0"  data-setup='{"fluid": true,"aspectRatio":"16:9" }' controls><source src="https://dl.dropboxusercontent.com/s/dge3r7z9wmx2hpj/cosmos_original.mp4" type='video/mp4'>
-      <track kind="captions" src="https://dl.dropboxusercontent.com/s/vdc9s3pzv6hwpwe/testplayer.vtt" srclang="en" label="English" default>
+     <track kind="captions" src="https://dl.dropboxusercontent.com/s/vdc9s3pzv6hwpwe/testplayer.vtt" srclang="en" label="English" default>
   </video>
     
     <script src="https://vjs.zencdn.net/7.10.2/video.js"></script> 
-  <script src="https://cdn.jsdelivr.net/npm/videojs-logo@2.1.1/dist/videojs-logo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-share@3.2.1/dist/videojs-share.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/videojs-logo@2.1.1/dist/videojs-logo.js"></script>
   <script src="//cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@youon/videojs-replayforward@1.0.1/dist/videojs-replayforward.js"></script>
   <script src="https://dl.dropboxusercontent.com/s/x02hcuvf3g73x35/videojs-contextmenu-ui.js"></script>
     <script src="https://dl.dropboxusercontent.com/s/bl28n6213ln60x6/videojs-seek-buttons.js"></script>
+ 
   <script>
-   var player = videojs('my-video');
+  
+  var player = videojs('my-video');
   // initialize the plugin
 
-(function(window, videojs) {
+
+
+  
+
+   var shareOptions = {
+  socials: ['fbFeed', 'tw', "gp", 'messenger', 'telegram', 'whatsapp' ],
+ 
+  url: window.location.href,
+  title: 'VideoJS Project',
+  description: 'Emilio Salas',
+  image: '',
+  
+  // required for Facebook and Messenger
+  fbAppId: '12345',
+  // optional for Facebook
+  redirectUri: window.location.href + '#close',
+ 
+  // optional for VK
+  isVkParse: true,
+} 
+player.share(shareOptions);
+    
+    (function(window, videojs) {
       var examplePlayer = window.examplePlayer = videojs('my-video');
       var logo = window.logo = examplePlayer.logo({
         image: 'https://3.bp.blogspot.com/-d6da9ysmAI4/X8dRfg5_4RI/AAAAAAAAAtc/_ZwZdvBBam0GYhUdavqeIU26mgfYbSgVwCK4BGAYYCw/s1600/InShot_20201202_140229669-removebg-preview.png',
@@ -83,4 +110,6 @@
         back: 10
       });
     }(window, window.videojs));
-</script>
+ </script>
+</body>
+</html>
